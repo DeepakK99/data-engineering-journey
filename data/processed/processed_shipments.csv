@@ -1,0 +1,7 @@
+shipment_id,customer_name,origin,destination,shipment_date,delivery_date,status,cost,delivery_days,delayed_flag
+S001,Alice Johnson,Bangalore,Mumbai,2026-05-01,2026-05-03,Delivered,5000.0,2,False
+S002,Bob Smith,Delhi,Chennai,2026-05-02,2026-05-06,Delayed,7000.0,4,True
+S003,Charlie Brown,Hyderabad,Pune,2026-05-04,2026-05-05,In Transit,4500.0,1,False
+S004,,Kolkata,Ahmedabad,2026-05-03,2026-05-07,Delivered,6000.0,4,True
+S005,Emma Wilson,Bangalore,Delhi,2026-05-06,,Pending,5500.0,,False
+S009,Isabella King,Lucknow,Delhi,2026-05-10,2026-05-15,Delivered,8000.0,5,True

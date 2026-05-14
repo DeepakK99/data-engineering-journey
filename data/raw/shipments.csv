@@ -1,0 +1,11 @@
+shipment_id,customer_name,origin,destination,shipment_date,delivery_date,status,cost
+S001,Alice Johnson,Bangalore,Mumbai,2026-05-01,2026-05-03,Delivered,5000
+S002,Bob Smith,Delhi,Chennai,2026-05-02,2026-05-06,Delayed,7000
+S003,Charlie Brown,Hyderabad,Pune,2026-05-04,2026-05-05,In Transit,4500
+S004,,Kolkata,Ahmedabad,2026-05-03,2026-05-07,Delivered,6000
+S005,Emma Wilson,Bangalore,Delhi,2026-05-06,,Pending,5500
+S006,Frank Thomas,Mumbai,Chennai,2026-05-07,2026-05-06,Delivered,-2000
+S007,Grace Lee,Pune,Bangalore,2026-05-08,2026-05-12,UNKNOWN,4000
+S002,Bob Smith,Delhi,Chennai,2026-05-02,2026-05-06,Delayed,7000
+,Henry Clark,Jaipur,Mumbai,2026-05-09,2026-05-11,Delivered,3000
+S009,  Isabella King  ,Lucknow,Delhi,2026-05-10,2026-05-15, delivered ,8000

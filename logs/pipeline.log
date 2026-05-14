@@ -1,0 +1,6 @@
+2026-05-13 17:42:49,469 - INFO - Pipeline Started
+2026-05-13 17:42:49,471 - WARNING - Rejected record: {'shipment_id': 'S006', 'customer_name': 'Frank Thomas', 'origin': 'Mumbai', 'destination': 'Chennai', 'shipment_date': '2026-05-07', 'delivery_date': '2026-05-06', 'status': 'Delivered', 'cost': '-2000'}
+2026-05-13 17:42:49,471 - WARNING - Rejected record: {'shipment_id': 'S007', 'customer_name': 'Grace Lee', 'origin': 'Pune', 'destination': 'Bangalore', 'shipment_date': '2026-05-08', 'delivery_date': '2026-05-12', 'status': 'Unknown', 'cost': '4000'}
+2026-05-13 17:42:49,471 - WARNING - Duplicate record skipped: S002
+2026-05-13 17:42:49,471 - WARNING - Rejected record: {'shipment_id': '', 'customer_name': 'Henry Clark', 'origin': 'Jaipur', 'destination': 'Mumbai', 'shipment_date': '2026-05-09', 'delivery_date': '2026-05-11', 'status': 'Delivered', 'cost': '3000'}
+2026-05-13 17:42:49,471 - INFO - Pipeline completed. Records written: 6
