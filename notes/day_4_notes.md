@@ -1,5 +1,9 @@
 # day 4 notes (python + postgres[psycopg2])
 
+## concepts
+- batch processing/loading
+- proper logging
+
 ## Better Production Approach
 - idempotency (primary key for db level constraint)
 - handle on conflicts
