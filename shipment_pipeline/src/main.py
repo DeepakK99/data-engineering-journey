@@ -1,8 +1,8 @@
-from reader import read_shipments
-from cleaner import clean_record
-from validator import validate_record
-from transformer import transform_record
-from writer import write_shipments
+from shipment_pipeline.src.reader import read_shipments
+from shipment_pipeline.src.cleaner import clean_record
+from shipment_pipeline.src.validator import validate_record
+from shipment_pipeline.src.transformer import transform_record
+from shipment_pipeline.src.writer import write_shipments
 
 import logging
 from pathlib import Path
