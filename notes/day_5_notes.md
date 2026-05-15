@@ -66,6 +66,16 @@ List all objects recursively:
 aws s3 ls s3://bucket-name/ --recursive
 ```
 
+Delete all files:
+```bash
+aws s3 rm s3://your-bucket-name --recursive
+```
+
+Delete bucket:
+```bash
+aws s3 rb s3://your-bucket-name
+```
+
 ## S3
 - S3 is object storage, not a filesystem
 - Data is stored as:
