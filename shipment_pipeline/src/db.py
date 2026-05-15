@@ -9,7 +9,7 @@ def get_db_connection():
             host="localhost",
             database="shipment_db",
             user="postgres",
-            password="postgres",
+            password="<REDACTED>",
             port="5432"
         )
         logging.info("Database Connection Successful")
@@ -18,8 +18,8 @@ def get_db_connection():
     except Exception as e:
 
         logging.error(f"Database connection failed: {e}")
-
-        return None
+        conn = None
+        yield conn
 
     finally:
         if conn:

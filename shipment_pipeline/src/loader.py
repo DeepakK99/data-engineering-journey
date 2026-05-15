@@ -2,7 +2,9 @@ import logging
 from psycopg2.extras import execute_batch
 
 def insert_batch(conn, records):
-
+    if not conn:
+        return
+    
     try:
 
         cursor = conn.cursor()

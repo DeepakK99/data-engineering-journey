@@ -5,6 +5,7 @@ from transformer import transform_record
 from writer import write_shipments
 from loader import insert_batch
 from db import get_db_connection
+from s3_uploader import upload_file_to_s3
 from queries import *
 
 import logging
@@ -70,6 +71,10 @@ def run_pipeline():
         logging.info(f"top_customers: {top_customers}")
 
     logging.info("End of Analytics")
+
+    upload_file_to_s3(BASE_DIR / "data/processed/processed_shipments.csv", 
+                      "<REDACTED>", 
+                      "processed/shipments/year=2026/month=05/day=15/processed_shipments.csv")
 
 if __name__ == "__main__":
     run_pipeline()

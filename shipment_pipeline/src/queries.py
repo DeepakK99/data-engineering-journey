@@ -1,7 +1,9 @@
 import logging
 
 def get_delayed_shipments(conn):
-
+    if not conn:
+        return
+    
     try:
 
         cursor = conn.cursor()
@@ -25,7 +27,9 @@ def get_delayed_shipments(conn):
         return []
 
 def get_average_delivery_time(conn):
-
+    if not conn:
+        return
+    
     try:
 
         cursor = conn.cursor()
@@ -48,7 +52,9 @@ def get_average_delivery_time(conn):
         return []
     
 def get_revenue_by_route(conn):
-
+    if not conn:
+        return
+    
     try:
 
         cursor = conn.cursor()
@@ -76,7 +82,9 @@ def get_revenue_by_route(conn):
         return []
 
 def get_top_customers(conn):
-
+    if not conn:
+        return
+    
     try:
 
         cursor = conn.cursor()
