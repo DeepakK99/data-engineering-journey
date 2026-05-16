@@ -1,4 +1,4 @@
-import logging
+from utils.logger import logger
 from psycopg2.extras import execute_batch
 
 def insert_batch(conn, records):
@@ -50,7 +50,7 @@ def insert_batch(conn, records):
 
         conn.rollback()
 
-        logging.error(f"Batch insert failed: {e}")
+        logger.error(f"Batch insert failed: {e}")
 
 def insert_record(conn, record):
 
@@ -96,4 +96,4 @@ def insert_record(conn, record):
 
         conn.rollback()
 
-        logging.error(f"Insertion failed: {e}")
+        logger.error(f"Insertion failed: {e}")

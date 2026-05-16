@@ -1,4 +1,4 @@
-import logging
+from utils.logger import logger
 
 def get_delayed_shipments(conn):
     if not conn:
@@ -22,7 +22,7 @@ def get_delayed_shipments(conn):
 
     except Exception as e:
 
-        logging.error(f"Query failed: {e}")
+        logger.error(f"Query failed: {e}")
 
         return []
 
@@ -47,7 +47,7 @@ def get_average_delivery_time(conn):
 
     except Exception as e:
 
-        logging.error(f"Query failed: {e}")
+        logger.error(f"Query failed: {e}")
 
         return []
     
@@ -77,7 +77,7 @@ def get_revenue_by_route(conn):
 
     except Exception as e:
 
-        logging.error(f"Query failed: {e}")
+        logger.error(f"Query failed: {e}")
 
         return []
 
@@ -106,6 +106,6 @@ def get_top_customers(conn):
 
     except Exception as e:
 
-        logging.error(f"Query failed: {e}")
+        logger.error(f"Query failed: {e}")
 
         return []
