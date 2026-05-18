@@ -8,7 +8,7 @@ def get_db_connection():
     try:
         conn = psycopg2.connect(
             host=DB_CONFIG["host"],
-            database=DB_CONFIG["DB_CONFIG"],
+            database=DB_CONFIG["database"],
             user=DB_CONFIG["user"],
             password=DB_CONFIG["password"],
             port=DB_CONFIG["port"],
@@ -17,7 +17,6 @@ def get_db_connection():
         yield conn
     
     except Exception as e:
-
         logger.error(f"Database connection failed: {e}")
         conn = None
         raise

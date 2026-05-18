@@ -1,7 +1,7 @@
-from utils.logger import logger
+import logging
 
 logging.basicConfig(
-    level=logger.info,
+    level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
 

@@ -1,14 +1,15 @@
+from utils.logger import logger
 from config.config import AWS_CONFIG, INPUT_FILE, BASE_DIR
 
-from reader import read_shipments
-from cleaner import clean_record
-from validator import validate_record
-from transformer import transform_record
-from writer import write_shipments
-from loader import insert_batch
-from db import get_db_connection
-from s3_uploader import upload_file_to_s3
-from queries import *
+from src.reader import read_shipments
+from src.cleaner import clean_record
+from src.validator import validate_record
+from src.transformer import transform_record
+from src.writer import write_shipments
+from src.loader import insert_batch
+from src.db import get_db_connection
+from src.s3_uploader import upload_file_to_s3
+from src.queries import *
 
 from utils.logger import logger
 import time
@@ -16,14 +17,15 @@ from datetime import datetime
 
 
 def run_pipeline():
+    logger.info("Pipeline initialization..")
     pipeline_start = time.time()
-    logger.info("Pipeline Started")
     processed_records = []
     seen_ids = set()
     total_records = 0
     duplicate_records = 0
     invalid_records = 0
 
+    logger.info("Pipeline starts..")
     data_processing_start = time.time()
     for record in read_shipments(BASE_DIR / INPUT_FILE):
         try:
@@ -63,6 +65,9 @@ def run_pipeline():
     logger.info(f"Total valid output records: {len(processed_records)}")
 
     output_path = BASE_DIR / "data/processed/processed_shipments.csv"
+    
+    logger.info("Data being written to localfile..")
+
     file_write_start = time.time()
     write_shipments(output_path, processed_records)
     file_write_end = time.time()
@@ -70,6 +75,8 @@ def run_pipeline():
         f"Written to local file (data/processed/processed_shipments.csv) in {(file_write_end-file_write_start):.2f} seconds"
     )
 
+    # Each section can be allowed to fail based on config
+    logger.info("Data being inserted to postgres db..")
     postgres_insert_start = time.time()
     with get_db_connection() as conn:
         insert_batch(conn, processed_records)
@@ -109,6 +116,9 @@ def run_pipeline():
         f"day={today.day:02d}/"
         f"processed_shipments.csv"
     )
+
+    logger.info("Data being uploaded to AWS s3..")
+
     s3_upload_start = time.time()
     upload_file_to_s3(
         BASE_DIR / "data/processed/processed_shipments.csv",
@@ -127,4 +137,5 @@ if __name__ == "__main__":
     try:
         run_pipeline()
     except Exception as e:
+        logger.error("Error ecountered! Pipeline stopped.")
         logger.exception(f"Pipeline failed. Error: {str(e)}")
